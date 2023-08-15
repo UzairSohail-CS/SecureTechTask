@@ -51,9 +51,9 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
-        backgroundColor: Colors.orange, // Change the app bar color
+        backgroundColor: Colors.orange,
       ),
-      backgroundColor: Colors.grey[200], // Change the background color
+      backgroundColor: Colors.grey[200],
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -64,8 +64,7 @@ class _LoginPageState extends State<LoginPage> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                    color: Colors.deepPurple, width: 2), // Add border
+                border: Border.all(color: Colors.deepPurple, width: 2),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
@@ -140,12 +139,11 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: _login,
               child: Text('Login'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.deepPurple, // Change the button color
+                primary: Colors.deepPurple,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                padding:
-                    EdgeInsets.symmetric(horizontal: 50), // Adjust button width
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 minimumSize: Size(380, 50),
               ),
             ),
@@ -156,12 +154,11 @@ class _LoginPageState extends State<LoginPage> {
               },
               child: Text('SignUp'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.orange, // Change the button color
+                primary: Colors.orange,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                padding:
-                    EdgeInsets.symmetric(horizontal: 50), // Adjust button width
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 minimumSize: Size(380, 50),
               ),
             ),
@@ -240,7 +237,6 @@ class _ProductListPageState extends State<ProductListPage> {
                               productList[index]['image'],
                               width: double.infinity,
                               height: 150,
-                              // fit: BoxFit.fill,
                             ),
                           ),
                           Positioned(
@@ -293,172 +289,6 @@ class ProductDetailsPage extends StatefulWidget {
   @override
   _ProductDetailsPageState createState() => _ProductDetailsPageState();
 }
-
-// class _ProductDetailsPageState extends State<ProductDetailsPage> {
-//   bool isCardExpanded = false;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('Product Details')),
-//       body: Stack(
-//         children: [
-//           SingleChildScrollView(
-//             child: Column(
-//               children: [
-//                 GestureDetector(
-//                   onTap: () {
-//                     showDialog(
-//                       context: context,
-//                       builder: (context) {
-//                         return Dialog(
-//                           child: Image.network(widget.product['image']),
-//                         );
-//                       },
-//                     );
-//                   },
-//                   child: Stack(
-//                     alignment: Alignment.bottomCenter,
-//                     children: [
-//                       Image.network(
-//                         widget.product['image'],
-//                         height: 480,
-//                         width: double.infinity,
-//                         fit: BoxFit.cover,
-//                       ),
-//                       Container(
-//                         padding: EdgeInsets.all(8),
-//                         color: Colors.black.withOpacity(0.7),
-//                         child: Text(
-//                           widget.product['title'],
-//                           style: TextStyle(
-//                             color: Colors.white,
-//                             fontWeight: FontWeight.bold,
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//                 SizedBox(height: 16),
-//               ],
-//             ),
-//           ),
-//           Align(
-//             alignment: Alignment.bottomCenter,
-//             child: AnimatedContainer(
-//               duration: Duration(milliseconds: 300),
-//               height: isCardExpanded
-//                   ? MediaQuery.of(context).size.height * 0.6
-//                   : 120,
-//               width: double.infinity,
-//               padding: EdgeInsets.all(16),
-//               decoration: BoxDecoration(
-//                 color: const Color.fromRGBO(255, 255, 255, 1),
-//                 borderRadius: BorderRadius.only(
-//                   topLeft: Radius.circular(20),
-//                   topRight: Radius.circular(20),
-//                 ),
-//                 boxShadow: [
-//                   BoxShadow(
-//                     color: Colors.grey,
-//                     offset: Offset(0, -2),
-//                     blurRadius: 5,
-//                   ),
-//                 ],
-//               ),
-//               child: Column(
-//                 children: [
-//                   GestureDetector(
-//                     onTap: () {
-//                       setState(() {
-//                         isCardExpanded = !isCardExpanded;
-//                       });
-//                     },
-//                     child: Icon(
-//                       isCardExpanded
-//                           ? Icons.keyboard_arrow_down
-//                           : Icons.keyboard_arrow_up,
-//                       size: 36,
-//                       color: Colors.grey,
-//                     ),
-//                   ),
-//                   SizedBox(height: 8),
-//                   Row(
-//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                     children: [
-//                       Text(
-//                         '\$${widget.product['price']}',
-//                         style: TextStyle(
-//                           fontWeight: FontWeight.bold,
-//                           fontSize: 24,
-//                         ),
-//                       ),
-//                       ElevatedButton(
-//                         onPressed: () {
-//                           print('Purchased');
-//                           // Handle purchase button tap
-//                         },
-//                         style: ElevatedButton.styleFrom(
-//                           primary: Colors.purple,
-//                           shape: RoundedRectangleBorder(
-//                             borderRadius: BorderRadius.circular(10),
-//                           ),
-//                         ),
-//                         child: Text(
-//                           'Purchase',
-//                           style: TextStyle(color: Colors.white),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                   if (isCardExpanded) ...[
-//                     SizedBox(height: 16),
-//                     Text(
-//                       widget.product['description'],
-//                       style: TextStyle(fontSize: 16),
-//                     ),
-//                     SizedBox(height: 16),
-//                     Row(
-//                       children: [
-//                         Icon(Icons.star, color: Colors.yellow),
-//                         SizedBox(width: 4),
-//                         Text(
-//                           '${widget.product['rating']['rate']} (${widget.product['rating']['count']} reviews)',
-//                         ),
-//                       ],
-//                     ),
-//                     // SizedBox(height: 16),
-//                     // Column(
-//                     //   crossAxisAlignment: CrossAxisAlignment.start,
-//                     //   children: [
-//                     //     for (int i = 1; i <= 5; i++)
-//                     //       Row(
-//                     //         children: [
-//                     //           Icon(Icons.star, color: Colors.yellow),
-//                     //           SizedBox(width: 4),
-//                     //           Text('$i stars'),
-//                     //         ],
-//                     //       ),
-//                     //     SizedBox(height: 16),
-//                     //     for (int i = 0; i < 3; i++)
-//                     //       ListTile(
-//                     //         title: Text('Random Comment ${i + 1}'),
-//                     //         subtitle: Text('This is a random comment.'),
-//                     //       ),
-//                     //     SizedBox(height: 16),
-//                     //   ],
-//                     // ),
-//                   ],
-//                 ],
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   bool isCardExpanded = false;
@@ -523,7 +353,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       print('Purchased');
-                      // Handle purchase button tap
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.purple,
@@ -585,7 +414,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       ElevatedButton(
                         onPressed: () {
                           String comment = commentController.text;
-                          // Process the entered comment
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.purple,
